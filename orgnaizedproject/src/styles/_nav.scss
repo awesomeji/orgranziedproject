@@ -1,0 +1,26 @@
+.nav {
+  border: 1px solid black;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  min-height: 10vh;
+}
+.buttons {
+  margin-right: 50px;
+  width: 10vw;
+  display: flex;
+  justify-content: space-between;
+  button {
+    height: 50%;
+    background: transparent;
+    border: none;
+    border: 2px solid rgb(65, 65, 65);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    &:hover {
+      background: rgb(65, 65, 65);
+      color: white;
+    }
+  }
+}
