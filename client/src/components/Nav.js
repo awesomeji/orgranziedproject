@@ -9,41 +9,34 @@ import {useHistory} from 'react-router-dom'
 
 
 
- function Nav({indexStatus,setIndexStatus}) {
-  const [loginStatus,setLoginStatus] =useState()
-  console.log(StorageEvent.key)
+ function Nav({indexStatus,setIndexStatus,loginStatus,setLoginStatus}) {
+  
 
-
-  const checkLoginStatus= localStorage.user
-  useEffect(()=>{
+  const logoutHandler =() =>{
     
-    if(checkLoginStatus==='true'){
-      setLoginStatus(true)
-    }else{
-      setLoginStatus(false)
-    }
-  },[StorageEvent.newValue])
+    
+    axios.get("/api/users/logout")
+     .then(res=>{
+       if(res.data.success){
+         console.log(res)
+        history.push('/login')
+        localStorage.setItem('user','false')
+        setLoginStatus(false); 
+ 
+         
+     }else{
+         alert("Logout failed")
+ 
+     }
+   })
+ }
+
+ 
   console.log()
  const history = useHistory();
 
   
-  const logoutHandler =() =>{
-    
-    
-   axios.get("/api/users/logout")
-    .then(res=>{
-      if(res.data.success){
-        console.log(res)
-       history.push('/login')
-       localStorage.setItem('user','false')
-
-        
-    }else{
-        alert("Logout failed")
-
-    }
-  })
-}
+ 
 
 
   return (

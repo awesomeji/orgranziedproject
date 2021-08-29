@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {useDispatch} from 'react-redux'
 import { registerUser } from '../../_actions/user_action'
 import{withRouter} from 'react-router-dom'
+import Auth from '../hoc/auth'
 function RegisterPage(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -65,7 +66,7 @@ const onSubmitHandler = (e) => {
     )
   }
   
-  export default withRouter(RegisterPage)
+  export default Auth(withRouter(RegisterPage))
   
   const RegisterContainer = styled.div`
    

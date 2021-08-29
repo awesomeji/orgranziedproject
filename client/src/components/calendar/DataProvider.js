@@ -1,6 +1,8 @@
 import React,{useState,useEffect,createContext} from 'react'
 
-export const DataContext = createContext();
+export const DataContext = createContext({
+  externalEvents: [],
+});
 
 export const DataProvider = (props) => {
     const [todos, setTodos] = useState([

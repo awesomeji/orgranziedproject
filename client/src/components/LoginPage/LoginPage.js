@@ -12,16 +12,20 @@ import {useDispatch} from 'react-redux'
 import { loginUser } from '../../_actions/user_action';
 import {withRouter} from 'react-router-dom'
 import { PromiseProvider } from 'mongoose';
+import Auth from '../hoc/auth'
 
 
 
 
-function LoginPage(props) {
+
+function LoginPage(props,{setLoginStatus}) {
   const dispatch= useDispatch();
-
+  console.log(props)
+  console.log(props.setLoginStatus)
+  console.log(setLoginStatus)
   const[Email,setEmail]=useState("")
   const[Password,setPassword]=useState("")
-
+  
   const onEmailHandler =(e) =>{
     setEmail(e.currentTarget.value)
   } 
@@ -43,7 +47,7 @@ dispatch(loginUser(body))
       if(response.payload.loginSuccess){
         localStorage.setItem('user',response.payload.loginSuccess)
         props.history.push("/")
-       console.log(props.parentNode)
+        setLoginStatus(true)
        
        
       }else{
@@ -72,7 +76,7 @@ dispatch(loginUser(body))
   )
 }
 
-export default withRouter(LoginPage)
+export default Auth(withRouter(LoginPage));
 
 const LoginContainer = styled.div`
   border: 1px solid black;

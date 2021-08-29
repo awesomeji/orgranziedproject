@@ -1,8 +1,9 @@
 import React from 'react'
 
 import styled from 'styled-components'
-
-export default function LandingPage() {
+import Auth from '../hoc/auth'
+import {withRouter} from 'react-router-dom'
+function LandingPage() {
  
 
   return (
@@ -13,7 +14,7 @@ export default function LandingPage() {
     </Landing>
   )
 }
-
+export default Auth(withRouter(LandingPage))
 const Landing = styled.div`
 text-align: center;
 
