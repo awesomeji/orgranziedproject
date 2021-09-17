@@ -3,7 +3,7 @@ const{User} =require('../models/user')
 
 let auth = (req, res, next) => {
 
-  let token = req.cookies.x_auth;
+  let token = req.cookies.w_auth;
 
  /// findByToken is defined at user.js
   User.findByToken(token,(err,user)=>{

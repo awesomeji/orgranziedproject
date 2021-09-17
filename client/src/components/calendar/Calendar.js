@@ -12,8 +12,14 @@ import "bootswatch/dist/sketchy/bootstrap.min.css";
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDumpsterFire } from '@fortawesome/free-solid-svg-icons'
+import styled,{keyframes} from 'styled-components';
 
 
+import Auth from '../hoc/auth'
+import {withRouter} from 'react-router-dom'
+import {useSelector} from 'react-redux'
+
+import axios from "axios";
 
 import Todo from './Todo.js'
 
@@ -21,22 +27,62 @@ import Todo from './Todo.js'
 
 
 
-export default function Calendar() {
+ function Calendar() {
+
   //state
   const [state, setState] = useState({
     externalEvents: [],
   });
 
-  
+  const user = useSelector(state=>state.user)  
 
-  
+  const [events, setEvents] = useState([])
+
+  useEffect(() => {
+    axios.get(`/api/calendar/getEvents/${user.id}`)
+    .then(res=>{
+      setEvents(res.data)
+    })
+  })
 
 
   
   const removeRemain = (info) =>{
+   
     info.draggedEl.parentNode.removeChild(info.draggedEl);
     
+    //parse localstorage and find same text with draggedEl.innertext and delete match. and set to localstorage
+    
+    const localEx = JSON.parse(localStorage.getItem('externalEvents'))
+    
+    localEx.forEach((item,index)=>{
+      if(item.title === info.draggedEl.innerText){
+        localEx.splice(index,1)
+        localStorage.setItem('externalEvents',JSON.stringify(localEx))
+       
+      }
+    })
+  }
 
+  const handleEventAdd = (e) =>{
+    console.log(e)
+    //bring user info from redux
+    if(user.userData && !user.userData.isAuth){
+      alert('Please log in to create a post')
+    }
+    const info ={
+      event:e.event,
+      writer:user.userData._id
+    }
+    axios.post('/api/calendar/create-event',info)
+    .then(response=>{
+      if(response.data.success){
+        alert('Event created successfully')
+      }else{
+        alert('Failed to create event')
+        console.log(response.data)
+      }
+    })
   }
 
   // const createCheckbox = (info) =>{
@@ -109,14 +155,14 @@ export default function Calendar() {
           }}
           navLinks={true}
           weekNumbers={true}
-          
+          events={events}
           dayMaxEvents={true}
           droppable={true}
           drop= {removeRemain}
           editable={true}
           selectable={true}
           selectMirror={true}
-          events={state.calendarEvents}
+          eventReceive={event => handleEventAdd(event)}
           eventResizableFromStart={true}
           eventDragStop={(info)=>{
 
@@ -140,7 +186,7 @@ export default function Calendar() {
         <div className="todo-container">
           <div className="todolist">
             <div className="dumpster" droppable={true} id="dumpster">
-              todo-dumpster  <FontAwesomeIcon icon={faDumpsterFire}/>
+                <FontAwesomeIcon icon={faDumpsterFire}/> dumpster
             </div>
             {/* todos */}
             <div  id="external-events"   >
@@ -174,9 +220,17 @@ export default function Calendar() {
             </div>
             {/* todos */}
           </div>
-                  <Todo state={state} setState={setState} />
+                  <Todo state={state} setState={setState}
+                  
+                   />
         </div>
        
       </div>
   )
 }
+
+export default Auth(withRouter(Calendar),true);
+
+const Title = styled.h1`
+
+`

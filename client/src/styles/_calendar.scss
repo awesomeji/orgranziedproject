@@ -2,6 +2,8 @@
   height: 100vh;
   justify-content: space-between;
   display: flex;
+  animation-name: fadeIn;
+  animation-duration: 3s;
 }
 .fc {
   width: 80%;
@@ -25,6 +27,11 @@
 .fc-view-harness{
   border-top: 1px solid #ccc;
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+to { opacity: 1; }
+}
+
 .fc-event {
   
   border-radius: 1rem;
@@ -33,7 +40,11 @@
   text-align: center;
   width: 95%;
   margin: 10px 0 0 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
 }
+
+
 
 .todo-container {
   width: 20%;
@@ -64,8 +75,8 @@
   justify-content: center;
   text-align: center;
   font-size: 2.5rem;
-  font-weight: 900;
-  font-style: italic;
+  
+  
 }
 
 .todoinput{

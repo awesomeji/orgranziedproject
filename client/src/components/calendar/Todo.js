@@ -1,4 +1,4 @@
-import React,{useContext,useRef,useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle} from '@fortawesome/free-solid-svg-icons'
 
@@ -28,15 +28,36 @@ export default function Todo({state,setState}) {
           ...state.externalEvents,
           { title: title, color: color, custom: custom, id: uuidv4(), },
         ],
-      });
+      },
+      );
+     
       
-      localStorage.setItem("todoStore", JSON.stringify(state.externalEvents));
+     
     
       setTitle("");
       setCustom("");
     }
   };
 
+  const saveLocalTodos= () =>{
+    localStorage.setItem("externalEvents",JSON.stringify(state.externalEvents));
+  }
+const getLocalTodos= () =>{
+  if(localStorage.getItem("externalEvents")===null){
+    localStorage.setItem("externalEvents",JSON.stringify([]))
+  }else{
+    let todolocal = JSON.parse(localStorage.getItem("externalEvents"));
+    setState({externalEvents:todolocal});
+  }
+}
+useEffect(()=>{
+  getLocalTodos()
+},[])
+  useEffect(()=>{
+   saveLocalTodos()
+  },[state.externalEvents])
+
+ 
   return (
     <>
        <form className="todoinput" onSubmit={addTodo}>
@@ -66,3 +87,5 @@ export default function Todo({state,setState}) {
     </>
   )
 }
+
+

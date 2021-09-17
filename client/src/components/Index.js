@@ -13,9 +13,9 @@ export default function Index({indexStatus,setIndexStatus}) {
         <button onClick={()=>setIndexStatus(!indexStatus)} ><FontAwesomeIcon icon={faTimes}  /></button>
       </IndexButtons>
       <IndexWrapper><Link to="/calendar">Calendar</Link></IndexWrapper>
-      <IndexWrapper>Blog</IndexWrapper>
-      <IndexWrapper>Whatever</IndexWrapper>
-      <IndexWrapper>Whatever</IndexWrapper>
+      <IndexWrapper><Link to="/blog">Blog</Link></IndexWrapper>
+      <IndexWrapper>Coming up</IndexWrapper>
+      <IndexWrapper>Coming up</IndexWrapper>
 
 
       <IndexWrapper></IndexWrapper>

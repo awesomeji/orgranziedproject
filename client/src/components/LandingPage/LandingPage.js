@@ -9,14 +9,30 @@ function LandingPage() {
   return (
     <Landing>
     
-      this is landing page
+     <Logo>
+       <Title>
+       marauders
+       </Title>
+       </Logo>
     
     </Landing>
   )
 }
 export default Auth(withRouter(LandingPage))
 const Landing = styled.div`
-text-align: center;
-
+  position: relative;
+  height: 100vh;
 
 `;
+
+const Logo = styled.div`
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-55%,-120%);
+  display: inline-block;
+  
+`
+const Title = styled.h1`
+font-size: 6rem;
+`
