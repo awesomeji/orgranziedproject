@@ -13,19 +13,21 @@ const path = require('path');
 // and write if statement to tell I use private things only when I develop and not deploy
 // check config folder for more detail  
 // P.S don't forget to add dev.js to .gitignore!
-mongoose
-  .connect(
-    config.mongoURI,
-    { useNewUrlParser: true },
-    { useUnifiedTopology: true }
-  )
-  .then(() => {
-    console.log("connected to MGDB");
+const connect = mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+
+// mongoose
+//   .connect(
+//     config.mongoURI,
+//     { useNewUrlParser: true },
+//     { useUnifiedTopology: true }
+//   )
+//   .then(() => {
+//     console.log("connected to MGDB");
     
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
 app.use(express.json());
 // so when user register on website, they filled in their information and submit it
