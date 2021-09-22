@@ -5,6 +5,8 @@ const mongoose = require("mongoose"); // package manager for using mongodb datab
 const { User } = require("./models/user");
 const {auth} = require("./middleware/auth")
 const config = require("./config/key");
+const path = require('path');
+
 // when I have to write private things in development mode
 // I make config folder and create dev.js and prod.js
 // and write the private things in dev.js and create key.js 
