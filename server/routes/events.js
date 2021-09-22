@@ -13,13 +13,22 @@ const { auth } = require("../middleware/auth");
      })
    })
  })
+router.post('/removeEvent',(req,res)=>{
+  Events.findOneAndDelete({"event_id":req.body.eventId},(err,doc)=>{
+    if(err) return res.json({success:false,err});
+    return res.status(200).json({
+      success:true
+    })
+  })
+})
 
- router.get('/getEvents/',(req,res) => {
+
+ router.get('/getEvents',(req,res) => {
  Events.find() //bring eventss from db
   .populate('writer')
-  .exec((err,blogs)=>{
+  .exec((err,events)=>{
     if(err) return res.status(400).send(err);
-    res.status(200).json({success:true, blogs})
+    res.status(200).json({success:true, events})
   })
 
 })

@@ -53,12 +53,13 @@ router.get('/getBlogs',(req,res) => {
   Blog.find() //bring posts from db
   .populate('writer')
   .exec((err,blogs)=>{
+    
     if(err) return res.status(400).send(err);
     res.status(200).json({success:true, blogs})
   })
 
 })
-
+//blogs.writer._id
 router.post('/getPost', (req,res)=>{
   
   Blog.findOne({"_id":req.body.postId})
@@ -69,5 +70,14 @@ router.post('/getPost', (req,res)=>{
   })
 })
 
+router.post('/delete',(req,res)=>{
+  Blog.findOneAndDelete({"_id":req.body.postId},(err,doc)=>{
+    if(err) return res.json({success:false,err});
+    return res.status(200).json({
+      success:true
+    })
+  })
+
+})
 
 module.exports = router;

@@ -48,7 +48,7 @@ import Title from "antd/lib/skeleton/Title";
         <h2  onClick={()=>setIndexStatus(!indexStatus)}><FontAwesomeIcon icon={faHatWizard} /> Marauders</h2>
           <StyledLink1 to="/calendar">
             <Title1>Calendar</Title1></StyledLink1>
-          <StyledLink1 to="/blog">
+          <StyledLink1 to="/blog/user">
             <Title1>Blog</Title1></StyledLink1>
           <StyledLink1 to="/">
             <Title1>Coming soon</Title1></StyledLink1>

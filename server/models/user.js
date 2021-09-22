@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const bcrypt = require('bcrypt');//encrypt password
+const bcrypt = require('bcrypt');//encrypt password
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');// web distinguish user and admin with token
 const userSchema = mongoose.Schema({

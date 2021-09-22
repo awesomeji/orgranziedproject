@@ -39,7 +39,7 @@ const {Title} = Typography;
       if(response.data.success){
         message.success('Post created')
         setTimeout(()=>{
-          props.history.push('/blog')
+          props.history.push('/blog/user')
         },2000)
       }
     })

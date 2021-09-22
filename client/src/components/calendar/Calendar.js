@@ -38,12 +38,24 @@ import Todo from './Todo.js'
 
   const [events, setEvents] = useState([])
 
+  
+
   useEffect(() => {
-    axios.get(`/api/calendar/getEvents/${user.id}`)
+    if (!user.userData?._id) return;
+    const userId = {userId:user.userData._id};
+    axios.get("/api/calendar/getEvents",userId)
     .then(res=>{
-      setEvents(res.data)
+      //res.data.events.event가 내가 전송하고 싶은 값
+      if(res.data.success){
+        const eventsInfo =res.data.events;
+        const fEventsInfo = eventsInfo.filter(
+          index =>index.writer._id === user.userData._id
+        )
+        const eventOfFevents = fEventsInfo.map(e=>e.event)
+        setEvents(eventOfFevents)
+      }
     })
-  })
+  },[user?.userData?._id])
 
 
   
@@ -64,25 +76,30 @@ import Todo from './Todo.js'
     })
   }
 
+  const removeFromDatabase = (e) =>{
+    console.log(e)
+    const eventId = e.event._def.publicId
+    console.log(eventId)
+    axios.post("/api/calendar/removeEvent",{eventId:eventId})
+    .then(res=>{
+      if(res.data.success){
+        alert('deleted successfully')
+      }
+    }
+    )
+  }
+
   const handleEventAdd = (e) =>{
     console.log(e)
     //bring user info from redux
-    if(user.userData && !user.userData.isAuth){
-      alert('Please log in to create a post')
-    }
+    console.log(e.event._def.publicId)
     const info ={
       event:e.event,
-      writer:user.userData._id
+      writer:user.userData._id,
+      event_id:e.event._def.publicId
     }
     axios.post('/api/calendar/create-event',info)
-    .then(response=>{
-      if(response.data.success){
-        alert('Event created successfully')
-      }else{
-        alert('Failed to create event')
-        console.log(response.data)
-      }
-    })
+    
   }
 
   // const createCheckbox = (info) =>{
@@ -174,12 +191,17 @@ import Todo from './Todo.js'
 
             if (info.jsEvent.pageX >= x1 && info.jsEvent.pageX <= x2 &&
                 info.jsEvent.pageY >= y1 && info.jsEvent.pageY <= y2) {
-                    
+                    console.log(info)
+                    console.log(info.event._def.publicId)
+                    removeFromDatabase(info)
                     info.event.remove();
-                    
+
+                    //info.event._def.publicId
+                    //Events.event.id
+
             }
             
-          }}
+          }}  
           // eventReceive={createCheckbox}
         />
         

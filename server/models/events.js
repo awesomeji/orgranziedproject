@@ -11,6 +11,9 @@ const EventsSchema = mongoose.Schema({
  writer : {
   type:Schema.Types.ObjectId,
   ref:'User'
+},
+event_id: {
+  type: String,
 }
 },{timestamps:true});
 

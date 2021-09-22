@@ -2,6 +2,7 @@ import React, { useState,Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import 'antd/dist/antd.css';
 
+
 import Nav from "./components/Nav";
 import Index from "./components/Index";
 import Calendar from "./components/calendar/Calendar";
@@ -12,6 +13,8 @@ import RegisterPage from "./components/RegisterPage/RegisterPage";
 import CreatePage from './components/BlogPage/Sections/CreatePage'
 import BlogPage from "./components/BlogPage/BlogPage";
 import PostPage from "./components/PostPage/PostPage"
+
+
 
 import "./styles/_app.scss";
 
@@ -25,9 +28,10 @@ function App() {
   );
  
   return (
-    <Suspense fallback={(<div>Loading...</div>)}>
-   
-      <Nav indexStatus={indexStatus} setIndexStatus={setIndexStatus}
+    <>
+     
+    <Suspense style={{margin:'0',padding:'0',boxSizing:'border-box'}} fallback={(<div>Loading...</div>)}>
+      <Nav sindexStatus={indexStatus} setIndexStatus={setIndexStatus}
           loginStatus={loginStatus} setLoginStatus={setLoginStatus} 
       />
       
@@ -44,12 +48,13 @@ function App() {
       <Route path="/about" component={About} />
       <Route path="/register" component={RegisterPage} />
       <Route path="/blog/post/:postId" component={PostPage} />
-      <Route path="/blog" component={BlogPage} />
+      <Route path="/blog/user" component={BlogPage} />
       <Route path="/" component={LandingPage} />
       
     </Switch>
- 
+    
     </Suspense>
+    </>
   );
 }
 

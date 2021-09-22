@@ -7,32 +7,50 @@ import {withRouter} from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import styled,{keyframes} from 'styled-components'
 import {EditOutlined,SettingOutlined,ZoomInOutlined,DeleteOutlined} from '@ant-design/icons';
-import {Card,Avatar,Col,Typography,Row} from 'antd'
+import {Card,Avatar,Col,Typography,Row,message} from 'antd'
 const {Title} = Typography;
 const {Meta} = Card;
 function BlogPage(props) {
    const [blogs, setBlogs] = useState([])
    const user = useSelector(state=>state.user)//bring user info from redux
    
+  
   // console.log(user.userData._id)
-   
+   const deletePost = (e) =>{
+     
+     const variable = {postId:e._id}
+     console.log(variable)
+      axios.post('/api/blog/delete',variable
+      ).then(res=>{
+         if(res.data.success){
+            message.success('Post Deleted')
+            setTimeout(()=>{
+              window.location.reload()
+            },1000)
+         }
+      })
+   }
    
   
 
   useEffect(() => {
+    if (!user.userData?._id) return;
+    const userId = {userId:user.userData._id};
     
-    
-    axios.get('/api/blog/getBlogs')
+    axios.get('/api/blog/getBlogs',userId)
     .then(response => {
       if(response.data.success){
-        setBlogs(response.data.blogs)
+        const blogsInfo = response.data.blogs;
+        const fBlogsInfo = blogsInfo.filter(index=>index.writer._id===user.userData._id)
+        setBlogs(fBlogsInfo)
       } else{
         alert("Couldn't get post list")
       }
     })
-  },[])
+  },[user?.userData?._id])
 
 //function
+
 const renderCard = blogs.map((blog, index) => {
   return <Col key={index} lg={8} md={12} xs={24} >
     <StyledCard 
@@ -40,7 +58,7 @@ const renderCard = blogs.map((blog, index) => {
     style={{width:370, marginTop:16}}
     actions={[
       <EditOutlined />,
-      <DeleteOutlined/>,
+      <DeleteOutlined onClick={()=>deletePost(blog)}/>,
       <a href={`/blog/post/${blog._id}`}><ZoomInOutlined/></a>,
     ]}
     >
@@ -49,7 +67,7 @@ const renderCard = blogs.map((blog, index) => {
       //   <Avatar src={blog.writer.image}/>
       // }
       title={blog.writer.name}
-      description="This is the description"
+      description="Preview"
       />
       <div style={{height:150, overflowY: 'scroll', marginTop:10}}>
 
@@ -63,13 +81,13 @@ const renderCard = blogs.map((blog, index) => {
   return (
     <div style={{height:'80vh', margin:'0 40px 0 40px'}}>
       <BlogNav>
-        <Title style={{marginTop:'40px'}}><StyledLink style={{color:"black"}} to="/blog" >Blog</StyledLink></Title>
+        <Title style={{marginTop:'40px'}}><StyledLink style={{color:"black"}} to="/blog/user" >Blog</StyledLink></Title>
       <Title ><StyledLink style={{color:"black"}} to="/blog/create" >Create</StyledLink></Title>
       </BlogNav>
       <Row gutter={[32,16]}>
         {renderCard}
         </Row> 
-    </div>
+    </div>  
   )
 }
 
@@ -84,14 +102,17 @@ const StyledLink = styled(Link)`
   
   text-decoration:none;
   font-size:2.5rem;
+  border: 1px solid black;
   
 `
 const BlogNav = styled.div`
   display:flex;
   justify-content:space-around;
+  border: 1px solid black;
   animation: ${appear} 1.5s ease-in-out;
 `
 
 const StyledCard = styled(Card)`
 animation: ${appear} 1.5s ease-in-out;
+border: 5px double black;
 `

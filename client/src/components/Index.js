@@ -13,7 +13,7 @@ export default function Index({indexStatus,setIndexStatus}) {
         <button onClick={()=>setIndexStatus(!indexStatus)} ><FontAwesomeIcon icon={faTimes}  /></button>
       </IndexButtons>
       <IndexWrapper><Link to="/calendar">Calendar</Link></IndexWrapper>
-      <IndexWrapper><Link to="/blog">Blog</Link></IndexWrapper>
+      <IndexWrapper><Link to="/blog/user">Blog</Link></IndexWrapper>
       <IndexWrapper>Coming up</IndexWrapper>
       <IndexWrapper>Coming up</IndexWrapper>
 
