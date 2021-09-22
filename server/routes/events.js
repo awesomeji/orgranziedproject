@@ -34,4 +34,3 @@ router.post('/removeEvent',(req,res)=>{
 })
 
 module.exports = router;
-//
