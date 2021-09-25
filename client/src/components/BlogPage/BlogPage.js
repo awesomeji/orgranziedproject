@@ -59,7 +59,7 @@ const renderCard = blogs.map((blog, index) => {
     actions={[
       <EditOutlined />,
       <DeleteOutlined onClick={()=>deletePost(blog)}/>,
-      <a href={`/blog/post/${blog._id}`}><ZoomInOutlined/></a>,
+      <a href={'/blog/post'}><ZoomInOutlined/></a>,
     ]}
     >
       <Meta
