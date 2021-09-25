@@ -47,7 +47,7 @@ function App() {
       <Route path="/calendar" component={Calendar} />
       <Route path="/about" component={About} />
       <Route path="/register" component={RegisterPage} />
-      <Route path="/blog/post" component={PostPage} />
+      <Route path="/blog/post/:postId" component={PostPage} />
       <Route path="/blog/user" component={BlogPage} />
       <Route path="/" component={LandingPage} />
       
