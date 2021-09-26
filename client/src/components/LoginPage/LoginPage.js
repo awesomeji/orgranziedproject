@@ -33,6 +33,7 @@ function LoginPage(props) {
 
   const onSubmitHandler=(e)=>{
     e.preventDefault();
+    localStorage.setItem('user','true')
     console.log(Email);
     console.log(Password)
 
