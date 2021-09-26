@@ -1,12 +1,29 @@
+:root{
+  --fc-neutral-bg-color: rgba(208, 208, 208, 0.3);
+}
 .calendar-container {
+  
   height: 100vh;
   justify-content: space-between;
   display: flex;
   animation-name: fadeIn;
   animation-duration: 3s;
 }
+
+.fc-daygrid-day-frame,
+.fc-scrollgrid-sync-inner,
+.fc-view-harness
+{
+  
+  background-color: rgb(208, 194, 147);
+  background-color: rgba(208, 194, 147,0.2);
+
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
 .fc {
   width: 80%;
+  
 }
 
 .fc-day-sat {
@@ -28,6 +45,7 @@
   border-top: 1px solid #ccc;
  
 }
+
 
 
 @keyframes fadeIn {

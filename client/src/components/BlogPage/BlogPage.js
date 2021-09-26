@@ -114,5 +114,9 @@ const BlogNav = styled.div`
 
 const StyledCard = styled(Card)`
 animation: ${appear} 1.5s ease-in-out;
-border: 5px double black;
+
+border:none;
+
+background-color: rgb(208, 194, 147);
+background-color: rgba(208,194,147,0.3);
 `
