@@ -33,7 +33,7 @@ function LoginPage(props) {
 
   const onSubmitHandler=(e)=>{
     e.preventDefault();
-    localStorage.setItem('user','true')
+    
     console.log(Email);
     console.log(Password)
 
@@ -85,7 +85,7 @@ dispatch(loginUser(body))
   )
 }
 
-export default Auth(withRouter(LoginPage),false);
+export default Auth(withRouter(LoginPage));
 const appear = keyframes`
 from { opacity: 0; }
 to { opacity: 0.5; }
