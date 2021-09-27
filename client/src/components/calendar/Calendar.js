@@ -83,7 +83,7 @@ import Todo from './Todo.js'
     axios.post("/api/calendar/removeEvent",{eventId:eventId})
     .then(res=>{
       if(res.data.success){
-        alert('deleted successfully')
+       
       }
     }
     )

@@ -45,7 +45,7 @@ import Title from "antd/lib/skeleton/Title";
     {loginStatus ===true ? (
       <div>
       <div className="nav">
-        <h1 style={{color:"rgb(0,0,0)",textShadow: "0px 0px 4px rgb(102, 100, 83)",marginLeft:'10px'}} onClick={()=>setIndexStatus(!indexStatus)}> <FontAwesomeIcon icon={faHatWizard} /> Marauders</h1>
+        <h1 style={{color:"rgb(103,0,0)",textShadow: "0px 0px 4px rgb(102, 100, 83)",marginLeft:'10px'}} onClick={()=>setIndexStatus(!indexStatus)}> <FontAwesomeIcon icon={faHatWizard} /> Marauders</h1>
           <StyledLink1 to="/calendar">
             <Title1 >Calendar</Title1></StyledLink1>
           <StyledLink1 to="/blog/user">
@@ -55,9 +55,9 @@ import Title from "antd/lib/skeleton/Title";
           <StyledLink1 to="/">
             <Title1>Comin soon</Title1></StyledLink1>
         <div className="buttons">
-          <button style={{border:'5px double rgb(103, 0, 0)'}} onClick={logoutHandler}><Title2>Logout</Title2></button>
+          <button style={{border:'5px double rgb(0, 0, 0)'}} onClick={logoutHandler}><Title2>Logout</Title2></button>
 
-          <button style={{border:'5px double rgb(103, 0, 0)'}} onClick={()=>setIndexStatus(!indexStatus)} ><Title2>menu</Title2></button>
+          <button style={{border:'5px double rgb(0, 0, 0)'}} onClick={()=>setIndexStatus(!indexStatus)} ><Title2>menu</Title2></button>
         </div>
       </div>
     </div>)
@@ -120,7 +120,9 @@ text-shadow: 0px 0px 4px rgb(102, 100, 83);
 `
 
 const Title2 = styled.h1`
-  font-size:1rem;
-  color: rgb(103, 0, 0);
+  font-size:1.5rem;
+  color: rgb(0, 0, 0);
+  text-shadow: 0px 0px 4px rgb(102, 100, 83);
+  padding-bottom:10px;
 
 `

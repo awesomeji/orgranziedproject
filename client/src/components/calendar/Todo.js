@@ -76,11 +76,11 @@ useEffect(()=>{
               placeholder="detail"
             />
             <select className="selectcolor" onChange={getColor} value={color}>
-              <option value="select">select color</option>
-              <option value="#34568B">dolphin</option>
-              <option value="orange">tangerine</option>
-              <option value="#88B04B">grass</option>
-              <option value="#6B5B95">violet</option>
+              <option value="select">sorting hat</option>
+              <option value="rgb(103,0,0)">Gryffindor</option>
+              <option value="#24581E">Slytherin</option>
+              <option value="#B9A02D">Hufflepuff</option>
+              <option value="#062030">Ravenclaw</option>
             </select>
             <button className="addtodo" type="submit"><FontAwesomeIcon icon={faPlusCircle}/> Add todo  </button>
           </form>

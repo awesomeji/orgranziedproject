@@ -1,6 +1,4 @@
-:root{
-  --fc-neutral-bg-color: rgba(208, 208, 208, 0.3);
-}
+
 .calendar-container {
   
   height: 100vh;
@@ -15,11 +13,13 @@
 .fc-view-harness
 {
   
-  background-color: rgb(208, 194, 147);
-  background-color: rgba(208, 194, 147,0.2);
+  background-color: rgba(208, 194, 147,0.8);
+  // background-color: rgba(170, 149, 106,0.5);
+  //second option
+  
 
-  border-bottom: 1px solid rgb(103, 0, 0);
-  border-right: 1px solid rgb(103, 0, 0);
+  border-bottom: 2px solid rgb(103, 0, 0);
+  border-right: 2px solid rgb(103, 0, 0);
 }
 .fc {
   width: 80%;
@@ -69,13 +69,13 @@ to { opacity: 1; }
 
 .todo-container {
   width: 20%;
-  height: 100vh;
+  height: 105%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .todolist {
-  height: 60%;
+  height: 100%;
 }
 
 #external-events {
@@ -89,13 +89,14 @@ to { opacity: 1; }
 
 .dumpster{
   height: 12%;
-  border-bottom: 1px solid #ccc; 
-  border-left: 1px solid #ccc;
+  border-bottom: 5px double black; 
+  border-left: 5px double black;
   overflow: hidden;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-size: 2.5rem;
+  text-shadow: 0px 0px 4px rgb(102, 100, 83);
   
   
 }
@@ -109,25 +110,40 @@ to { opacity: 1; }
 .detail,
 .selectcolor
 {
-  border:1px solid #ccc;
+  border:2px solid black;
   height: 20%;
   font-size: 1.5rem;
+  background-color: rgba(170, 149, 106,0.5);
+  
+}
+.addevent,
+.detail{
+  &::placeholder{
+    color: rgba(103, 0, 0,0.5);
+  }
 }
 
 .selectcolor{
-  opacity: 0.5;
+  opacity: 1;
   text-align: center;
   text-align-last: center;
   font-size: 2rem;
+  color: rgb(103, 0, 0) ;
   -ms-text-align-last: center;
   -moz-text-align-last: center;
 }
 .addtodo{
-  background: white;
-  height: 20%;
-  font-size: 2rem;
-  border:1px solid #ccc;
+  background-color: rgba(170, 149, 106,0.5);
+
   
+
+  height: 22%;
+  font-size: 2rem;
+  border:5px double rgb(103, 0, 0);
+  &:hover {
+    background: rgb(103, 0, 0);
+    color: rgb(0,0,0);
+  }
 }
 
 // .checkbox{
