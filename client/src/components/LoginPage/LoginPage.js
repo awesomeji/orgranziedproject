@@ -60,13 +60,13 @@ dispatch(loginUser(body))
 
     <LoginContainer>
       <LoginForm onSubmit={onSubmitHandler}>
-        <h1>Login</h1>
+        <h1 style={{color:"rgb(0,0,0)",textShadow: "0px 0px 4px rgb(102, 100, 83)"}}>Login</h1>
         
-        <input type="email" name="email" value={Email} onChange={onEmailHandler} placeholder="Email"/>
-        <input type="password" name="password" value={Password} onChange={onPasswordHandler} placeholder="Password"/>
+        <input style={{backgroundColor:"rgba(170, 149, 106,0.5)",border:'2px solid rgb(0,0,0)'}} type="email" name="email" value={Email} onChange={onEmailHandler} placeholder="Email"/>
+        <input style={{backgroundColor:"rgba(170, 149, 106,0.5)",border:'2px solid rgb(0,0,0)'}} type="password" name="password" value={Password} onChange={onPasswordHandler} placeholder="Password"/>
         <div className="buttonform">
-        <button className="btn"type="submit">Sign in</button>
-        <Link to="/register" ><button className="btn" >Sign up</button></Link>
+        <button style={{border:"5px double rgb(0,0,0)"}} className="btn"type="submit">Sign in</button>
+        <Link to="/register" ><button style={{border:"5px double rgb(0,0,0)"}} className="btn" >Sign up</button></Link>
 
         </div>
       </LoginForm>
@@ -91,7 +91,7 @@ from { opacity: 0; }
 to { opacity: 0.5; }
 `
 const LoginContainer = styled.div`
-  border: 1px solid black;
+  border: 5px double rgb(0,0,0);
   height: 60vh;
   width: 70vw;
   display: flex;
@@ -99,12 +99,13 @@ const LoginContainer = styled.div`
   top: 0;
   left: 0;
   transform: translate(20%,25%);
+  border-radius: 2rem;
   
   `
 const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
-  border-right: 1px solid black;
+  border-right: 5px double rgb(0,0,0);
   height:100%;
   width: 40%;
   /* animation: ${appear} 1s ease-in-out; */
@@ -178,8 +179,12 @@ height:40%;
 
 const Title1 = styled.h1`
   font-size: 2rem;
+  
+  text-shadow: 0px 0px 4px rgb(102, 100, 83);
 `
 const Title2 = styled.h1`
   font-size: 2rem;
-  color: crimson;
+  color: rgb(103,0,0);
+  text-shadow: 0px 0px 4px rgb(102, 100, 83);
+
 `

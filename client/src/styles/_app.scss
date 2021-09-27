@@ -19,6 +19,12 @@ body{
   height: 80vh;
 }
 
+.ant-card-actions{
+  background-color: rgba(103,0,0,0.8);
+  border-top: 1px solid black;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
 
 
 @import './_calendar';

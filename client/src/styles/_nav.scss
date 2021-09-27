@@ -1,5 +1,5 @@
 .nav {
-  border-bottom: 5px double black;
+  border-bottom: 5px double rgb(0,0,0);
  margin-bottom: 5px;
   padding-top: 20px;
   display: flex;
@@ -8,9 +8,9 @@
 }
 .buttons {
   margin-right: 50px;
-  width: 10vw;
+  width: 15vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   button {
     height: 70%;
     background: transparent;
@@ -20,8 +20,8 @@
     padding: 0.5rem;
     transition: all 0.3s ease;
     &:hover {
-      background: rgb(65, 65, 65);
-      color: white;
+      background: rgb(103, 0, 0);
+      color: rgb(0,0,0);
     }
   }
 }

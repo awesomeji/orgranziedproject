@@ -45,9 +45,9 @@ import Title from "antd/lib/skeleton/Title";
     {loginStatus ===true ? (
       <div>
       <div className="nav">
-        <h2  onClick={()=>setIndexStatus(!indexStatus)}><FontAwesomeIcon icon={faHatWizard} /> Marauders</h2>
+        <h1 style={{color:"rgb(0,0,0)",textShadow: "0px 0px 4px rgb(102, 100, 83)",marginLeft:'10px'}} onClick={()=>setIndexStatus(!indexStatus)}> <FontAwesomeIcon icon={faHatWizard} /> Marauders</h1>
           <StyledLink1 to="/calendar">
-            <Title1>Calendar</Title1></StyledLink1>
+            <Title1 >Calendar</Title1></StyledLink1>
           <StyledLink1 to="/blog/user">
             <Title1>Blog</Title1></StyledLink1>
           <StyledLink1 to="/">
@@ -55,8 +55,9 @@ import Title from "antd/lib/skeleton/Title";
           <StyledLink1 to="/">
             <Title1>Comin soon</Title1></StyledLink1>
         <div className="buttons">
-          <button onClick={logoutHandler}><Title2>Logout</Title2></button>
-          <button onClick={()=>setIndexStatus(!indexStatus)} ><Title2>menu</Title2></button>
+          <button style={{border:'5px double rgb(103, 0, 0)'}} onClick={logoutHandler}><Title2>Logout</Title2></button>
+
+          <button style={{border:'5px double rgb(103, 0, 0)'}} onClick={()=>setIndexStatus(!indexStatus)} ><Title2>menu</Title2></button>
         </div>
       </div>
     </div>)
@@ -65,7 +66,7 @@ import Title from "antd/lib/skeleton/Title";
     :
      ( <div>
       <div className="nav">
-        <h2  onClick={()=>setIndexStatus(!indexStatus)}><FontAwesomeIcon icon={faHatWizard} />   Marauders</h2>
+        <h1 style={{color:"rgb(0,0,0)",textShadow: "0px 0px 4px rgb(102, 100, 83)",marginLeft:'10px'}}  onClick={()=>setIndexStatus(!indexStatus)}><FontAwesomeIcon icon={faHatWizard} />   Marauders</h1>
           <Basic>About</Basic>
           <Basic>How to use</Basic>
         <div className="buttons">
@@ -100,6 +101,7 @@ const StyledLink1 = styled(Link)`
   font-size: 1.5rem;
   text-decoration:none;
   animation: ${appear} 1s ease-in-out;
+  
 `
 
 
@@ -113,9 +115,12 @@ animation: ${appear} 1s ease-in-out;
 `
 
 const Title1 = styled.h1`
-
+color: rgb(0,0,0);
+text-shadow: 0px 0px 4px rgb(102, 100, 83);
 `
 
 const Title2 = styled.h1`
   font-size:1rem;
+  color: rgb(103, 0, 0);
+
 `

@@ -13,8 +13,8 @@ const {Meta} = Card;
 function BlogPage(props) {
    const [blogs, setBlogs] = useState([])
    const user = useSelector(state=>state.user)//bring user info from redux
+   const [userName,setUserName] = useState('')
    
-  
   // console.log(user.userData._id)
    const deletePost = (e) =>{
      
@@ -36,7 +36,7 @@ function BlogPage(props) {
   useEffect(() => {
     if (!user.userData?._id) return;
     const userId = {userId:user.userData._id};
-    
+    setUserName(user.userData.name)
     axios.get('/api/blog/getBlogs',userId)
     .then(response => {
       if(response.data.success){
@@ -54,12 +54,13 @@ function BlogPage(props) {
 const renderCard = blogs.map((blog, index) => {
   return <Col key={index} lg={8} md={12} xs={24} >
     <StyledCard 
+    
     hoverable
     style={{width:370, marginTop:16}}
     actions={[
-      <EditOutlined />,
-      <DeleteOutlined onClick={()=>deletePost(blog)}/>,
-      <a href={`/blog/post/${blog._id}`}><ZoomInOutlined/></a>,
+      <EditOutlined style={{fontSize:25}}  />,
+      <DeleteOutlined style={{fontSize:25}} onClick={()=>deletePost(blog)}/>,
+      <a href={`/blog/post/${blog._id}`}><ZoomInOutlined style={{fontSize:25}}/></a>,
     ]}
     >
       <Meta
@@ -81,8 +82,9 @@ const renderCard = blogs.map((blog, index) => {
   return (
     <div style={{height:'80vh', margin:'0 40px 0 40px'}}>
       <BlogNav>
-        <Title style={{marginTop:'40px'}}><StyledLink style={{color:"black"}} to="/blog/user" >Blog</StyledLink></Title>
-      <Title ><StyledLink style={{color:"black"}} to="/blog/create" >Create</StyledLink></Title>
+        {userName}'s Diary
+      <Title ><StyledLink style={{  color: "rgb(103, 0, 0)"
+}} to="/blog/create" >Create Diary</StyledLink></Title>
       </BlogNav>
       <Row gutter={[32,16]}>
         {renderCard}
@@ -102,21 +104,27 @@ const StyledLink = styled(Link)`
   
   text-decoration:none;
   font-size:2.5rem;
-  border: 1px solid black;
+ 
   
 `
 const BlogNav = styled.div`
   display:flex;
   justify-content:space-around;
-  border: 1px solid black;
+  margin: 20px 0 20px 0;
   animation: ${appear} 1.5s ease-in-out;
+  text-align:center;
+  font-size:2.5rem;
+  text-shadow: 0px 0px 4px rgb(102, 100, 83);
+
 `
 
 const StyledCard = styled(Card)`
 animation: ${appear} 1.5s ease-in-out;
 
 border:none;
-
-background-color: rgb(208, 194, 147);
-background-color: rgba(208,194,147,0.3);
+color: rgb(0,0,0);
+text-shadow: 0px 0px 4px rgb(102, 100, 83);
+box-shadow: 0px 0px 8px rgb(77, 75, 63);
+background-color: rgba(170, 149, 106,0.5);
+border-radius: 2rem;
 `
