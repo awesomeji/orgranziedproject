@@ -10,10 +10,11 @@ import About from'./components/about/about'
 import LandingPage from "./components/LandingPage/LandingPage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
-import CreatePage from './components/BlogPage/Sections/CreatePage'
+import CreatePage from './components/BlogPage/Sections/CreatePage';
 import BlogPage from "./components/BlogPage/BlogPage";
-import PostPage from "./components/PostPage/PostPage"
-import background from './img/987202_repin-image-marauders-map-by-ilovechez-on-pinterest_774x1032_h.webp'
+import PostPage from "./components/PostPage/PostPage";
+import Quest from "./components/quest/Quest"
+import background from './img/987202_repin-image-marauders-map-by-ilovechez-on-pinterest_774x1032_h.webp';
 import "./styles/_app.scss";
 
 
@@ -47,8 +48,8 @@ function App() {
       <Route path="/register" component={RegisterPage} />
       <Route path="/blog/post/:postId" component={PostPage} />
       <Route path="/blog/user" component={BlogPage} />
+      <Route path="/quest" component={Quest} />
       <Route path="/" component={LandingPage} />
-      
     </Switch>
     
     </Suspense>

@@ -46,12 +46,13 @@ import Title from "antd/lib/skeleton/Title";
       <div>
       <div className="nav">
         <h1 style={{color:"rgb(103,0,0)",textShadow: "0px 0px 4px rgb(102, 100, 83)",marginLeft:'10px'}} onClick={()=>setIndexStatus(!indexStatus)}> <FontAwesomeIcon icon={faHatWizard} /> Marauders</h1>
+        <StyledLink1 to="/quest">
+            <Title1>Quest</Title1></StyledLink1>
           <StyledLink1 to="/calendar">
             <Title1 >Calendar</Title1></StyledLink1>
           <StyledLink1 to="/blog/user">
-            <Title1>Blog</Title1></StyledLink1>
-          <StyledLink1 to="/">
-            <Title1>Coming soon</Title1></StyledLink1>
+            <Title1>Diary</Title1></StyledLink1>
+          
           <StyledLink1 to="/">
             <Title1>Comin soon</Title1></StyledLink1>
         <div className="buttons">
