@@ -97,7 +97,9 @@ const questAddtoDB=(e)=>{
   console.log(questInfo)
 
   axios.post('/api/quest/create-quest',questInfo)
-
+  setTimeout(()=>{
+    window.location.reload()
+  },100)
 }
 
 const increasePercent = (e,q) =>{
