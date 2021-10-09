@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const EventsSchema = mongoose.Schema(
+const QuestsSchema = mongoose.Schema(
   {
-    event: {
+    quest: {
       type: Object,
     },
 
@@ -11,13 +11,12 @@ const EventsSchema = mongoose.Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    event_id: {
-      type: String,
-    },
+    percent: Number,
+   
   },
   { timestamps: true }
 );
 
-const Events = mongoose.model("Events", EventsSchema);
+const Quests = mongoose.model("quests", QuestsSchema);
 
-module.exports = { Events };
+module.exports = { Quests };

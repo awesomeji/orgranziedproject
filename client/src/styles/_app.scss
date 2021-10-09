@@ -1,7 +1,10 @@
 html {
   scroll-behavior: smooth;
 }
-
+:root{
+  height:100vh;
+  overflow: scroll;
+}
 *{
   margin:0;
   padding:0;
@@ -26,6 +29,42 @@ body{
   border-bottom-right-radius: 2rem;
 }
 
+
+.stamp {
+  transform: rotate(12deg);
+	color: #555;
+	font-size: 3rem;
+	font-weight: 700;
+	border: 0.25rem solid #555;
+	display: inline-block;
+	padding: 0.25rem 0.1rem;
+	text-transform: uppercase;
+	border-radius: 1rem;
+	font-family: 'Courier';
+	-webkit-mask-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png');
+  -webkit-mask-size: 900px 604px;
+  mix-blend-mode: multiply;
+  z-index: 0;
+  position:absolute;
+}
+.is-nope {
+  color: rgba(221, 34, 51,0.8);
+  border: 0.5rem double rgba(221, 34, 51,0.8);
+  margin: 10px 0 0 0;
+  transform: rotate(3deg);
+	-webkit-mask-position: 2rem 3rem;
+  font-size: 1.5rem;  
+}
+
+.is-approved {
+	color: rgba(58, 223, 58,0.8);
+	border: 0.5rem solid rgba(58, 223, 58,0.8);
+	transform: rotate(-14deg);
+	-webkit-mask-position: 2rem 3rem;
+  border-radius: 0;
+  margin: 10px 15px 0 0;
+  font-size: 1.5rem; 
+} 
 
 @import './_calendar';
 @import './_nav';

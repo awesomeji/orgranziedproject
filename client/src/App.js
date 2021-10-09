@@ -28,7 +28,7 @@ function App() {
  
   return (
     <>
-      <div style={{zIndex:'-1',position:"absolute",margin:'0',padding:'0',boxSizing:'border-box'}}><img className="bg" style={{width:'100vw',opacity:'0.7'}} src={background} alt=""/></div>
+      <div style={{zIndex:'-1',position:"absolute",margin:'0',padding:'0',boxSizing:'border-box',height:'120vh'}}><img className="bg" style={{width:'100vw',opacity:'0.7',height:'120vh'}} src={background} alt=""/></div>
     <Suspense style={{margin:'0',padding:'0',boxSizing:'border-box'}} fallback={(<div>Loading...</div>)}>
       <Nav sindexStatus={indexStatus} setIndexStatus={setIndexStatus}
           loginStatus={loginStatus} setLoginStatus={setLoginStatus} 
