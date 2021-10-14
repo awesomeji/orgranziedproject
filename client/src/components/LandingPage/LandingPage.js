@@ -1,45 +1,70 @@
 import React from "react";
 
+
 import styled,{keyframes} from "styled-components";
 import Auth from "../hoc/auth";
 import { withRouter } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 function LandingPage() {
   return (
-    <Landing>
-      <Logo>
-        <Title>marauders</Title>
+    
+      
+      
        
-      </Logo>
-    </Landing>
+        <div class="card">
+    <div class="card__content">
+
+      <div class="frame"></div>
+      <div class="card__front">
+        <h3 class="card__title">Marauders</h3>
+        <p class="card__subtitle">I Solemnly Swear That I Am Up To No Good</p>
+      </div>
+
+      <div class="card__back">
+        <p class="card__body">
+          organize your skill, schedule, idea and money
+          for the better life.
+        </p>
+
+                <MoreDetail>
+                <StyledLink  to="/about">
+                more detail
+                </StyledLink>
+                </MoreDetail>
+      </div>
+        
+
+
+    </div>
+  </div>
+      
+    
   );
 }
 export default Auth(withRouter(LandingPage));
 
-const appear = keyframes`
-from { opacity: 0; }
-to { opacity: 1; }
-`
-const Landing = styled.div`
-  position: relative;
-  height: 100vh;
-`;
+const MoreDetail = styled.div`
+  background-color: transparent;
+  transform: translateZ(2rem);
+  border: 1px solid black;
+  width: 100px;
+  font-family: 'Montserrat', sans-serif;
+  &:hover {
+    background-color: rgb(103,0,0);
+    color:#D5C6AD;
+    cursor: pointer;
+  }
+  `
 
-const Logo = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -90%);
-  display: inline-block;
+
+
+const StyledLink = styled(Link)`
   
-`;
-const Title = styled.h1`
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-font-family: 'Dancing Script', cursive;
-font-size: 15rem;
-font-weight: 900;
-color: rgb(0,0,0);
-text-shadow: 0px 0px 4px rgb(102, 100, 83);
--webkit-mask-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png');
-animation: ${appear} 3s ease-in-out;
-`;
+  text-decoration:none;
+  color:black;
+  
+  &:hover{
+    color:#D5C6AD;
+  }
+`

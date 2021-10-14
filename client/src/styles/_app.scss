@@ -107,7 +107,105 @@ body{
     color:#D5C6AD;
   }
 }
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin:0
+}
+
+body{
+  height: 100vh;
+  position: relative;
+  place-items: center;
+}
+
+
+.card{
+  margin: 50px 0 0 0;
+  background-color: #E3DACA;
+  background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
+    border:none;
+  width: 600px;
+  display: grid;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  perspective:800px;
+}
+ 
+.card__content{
+  
+  text-align:center;
+  position:relative;
+  padding:10em  10em;
+  transition:transform 4s;
+  background-color: #C7B699;
+  background-image: url("https://www.transparenttextures.com/patterns/shattered-dark.png");
+  
+  transform-style: preserve-3d;
+}
+.card:hover .card__content{
+  transform: rotateY(.5turn);
+  
+ }
+.card__front,
+.card__back{
+  position: absolute;
+  top: 20%;
+  left: 0;
+  left: 0;
+  right: 0;
+  padding: 5em 3em;
+  
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  display: grid;
+  align-content: center;
+  
+}
+
+
+.frame{
+  border: 2px solid black;
+  height: 7rem;
+  
+ 
+  transform: translateZ(4rem);
+}
+ 
+.card__title {
+  
+  font-size: 3.5rem;
+  font-weight: 900;
+  transform: translateZ(6rem);
+  order: 2;
+  text-transform: uppercase;
+  -webkit-mask-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png');
+}
+
+.card__subtitle{
+  transform: translateZ(4rem);
+  opacity: .7;
+}
+.card__body{  
+  transform: translateZ(3rem);
+  font-family: 'Montserrat', sans-serif;
+}
+.card__front{
+  
+  transform: translateZ(3rem);
+}
+
+
+.card__back{
+  padding-bottom: 100px;
+  transform: rotateY(0.5turn);
+  font-size: 1.5rem;
+ 
+}
 @import './_calendar';
 @import './_nav';
 @import './index';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Noto+Sans+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');

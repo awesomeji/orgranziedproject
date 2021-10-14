@@ -68,7 +68,9 @@ import Title from "antd/lib/skeleton/Title";
      ( <div>
       <div className="nav">
         <div style={{color:"rgb(0,0,0)",textShadow: "0px 0px 4px rgb(102, 100, 83)",marginLeft:'10px',fontSize:'2rem', }}  onClick={()=>setIndexStatus(!indexStatus)}><FontAwesomeIcon icon={faHatWizard} />   Marauders</div>
-          <Basic>About</Basic>
+        
+            
+          <Basic><StyledLink3 to="/about">About</StyledLink3></Basic>
           <Basic>How to use</Basic>
         <div className="buttons">
        
@@ -115,6 +117,14 @@ const StyledLink2 = styled(Link)`
     color: rgb(103,0,0);
   }
 
+`
+const StyledLink3 = styled(Link)`
+  color: #000;
+  text-decoration:none;
+  &:hover{
+  color:#D5C6AD;
+}
+  
 `
 const Basic = styled.div`
 padding: 10px 0 0 0 ;

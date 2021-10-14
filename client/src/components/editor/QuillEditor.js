@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactQuill, { Quill } from 'react-quill';
 import "react-quill/dist/quill.snow.css";
-
+import PlainClipboard from './PlainClipboard'
 import axios from 'axios';
+
+Quill.register('modules/clipboard', PlainClipboard, true)
+
 const __ISMSIE__ = navigator.userAgent.match(/Trident/i) ? true : false;
 
 // Quill.register('modules/clipboard', PlainClipboard, true);
@@ -431,5 +434,6 @@ class QuillEditor extends React.Component {
         'image', 'video', 'file', 'link',"code-block", "video", "blockquote", "clean"
     ];
 }
+
 
 export default QuillEditor;

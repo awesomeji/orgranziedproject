@@ -47,7 +47,7 @@ position:fixed;
   box-shadow: 2px 2px 50px #8E8375;
   transform:${props => props.indexStatus ? 'translateX(0%)' : 'translateX(-110%)'};
  
-  z-index: ${props => props.indextatus ? '0' : '2'};
+  z-index: ${props => props.indextatus ? '0' : '3'};
   
   transition: all 0.5s ease;
   h2{

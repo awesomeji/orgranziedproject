@@ -204,12 +204,12 @@ axios.get('/api/quest/getQuests',userId)
                 .fill(0)
                 .map((_, idx) => <SubQuest key={idx}>
                   <label>subquest: </label>
-                  <input name={`subquest${idx+1}`} value={subQuest[idx]}onChange={handleChange} style={{backgroundColor:'rgba(170, 149, 106,0.5)',textAlign:'center',WebkitAppearance:'none',border:'5px double rgb(103,0,0)',outline:'none',borderRadius:'2rem',padding:'0px',margin:'0 0 0 5px',textShadow:'0px 0px 4px rgb(102, 100, 83)'}}/>
+                  <input name={`subquest${idx+1}`} value={subQuest[idx]}onChange={handleChange} style={{backgroundColor:'rgba(213, 198, 173,0.8)',textAlign:'center',WebkitAppearance:'none',border:'2px solid rgb(0,0,0)',outline:'none',borderRadius:'2rem',padding:'0px',margin:'0 0 0 5px'}}/>
                 </SubQuest>)}
                 <ForReward>
         <label>reward:</label>
         <input
-        style={{backgroundColor:'rgba(170, 149, 106,0.5)',textAlign:'center',width:'200px',WebkitAppearance:'none',border:'5px double rgb(103,0,0)',outline:'none',borderRadius:'2rem',padding:'0px',margin:'0 0 0 5px',textShadow:'0px 0px 4px rgb(102, 100, 83)'}}
+        style={{backgroundColor:'rgba(213, 198, 173,0.8)',textAlign:'center',width:'200px',WebkitAppearance:'none',border:'2px solid rgb(103,0,0)',outline:'none',borderRadius:'2rem',padding:'0px',margin:'0 0 0 5px'}}
         type="text"
         name="reward"
         value={subQuest.reward}
@@ -260,20 +260,20 @@ flex-direction:column;
 `
 
 const CustomInput = styled.div`
-  border:5px double black;
+  border:2px solid black;
   border-radius: 2rem;
   height: 80px;
   padding: 15px;
   margin: 0 0 0 15px;
   font-size: 1.5rem;
-  text-shadow: 0px 0px 4px rgb(102, 100, 83);
+  
 
   
 `
 const SubQuest = styled.div`
   margin: 20px 0 0 15px;
   font-size: 1.5rem;
-  text-shadow: 0px 0px 4px rgb(102, 100, 83);
+ 
   
 `
 
@@ -304,7 +304,7 @@ outline: none;
 border: 5px double rgb(0,0,0);
 border-radius: 2rem;
 background-color:rgba(170, 149, 106,0.5);
-text-shadow: 0px 0px 4px rgb(102, 100, 83);
+
 &:hover {
       background: rgb(103, 0, 0);
       color: rgb(0,0,0);
@@ -356,16 +356,7 @@ const SubQuestBar = styled.div`
  
 
 `
-const ProgressBar = styled.div`
-  margin: 10px 0 0 0;
-  width:70vw;
-  border: 2px solid green;
-  border-radius:2rem;
-  height: 5vh;
-  
 
-
-`
 
 const RewardContainer = styled.div`
  display:flex;
