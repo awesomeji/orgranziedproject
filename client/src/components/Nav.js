@@ -56,9 +56,9 @@ import Title from "antd/lib/skeleton/Title";
           <StyledLink1 to="/">
             <Title1>Comin soon</Title1></StyledLink1>
         <div className="buttons">
-          <button style={{border:'5px double rgb(0, 0, 0)'}} onClick={logoutHandler}><Title2>Logout</Title2></button>
+          <button style={{border:'2px solid rgb(0, 0, 0)'}} onClick={logoutHandler}><Title2>Logout</Title2></button>
 
-          <button style={{border:'5px double rgb(0, 0, 0)'}} onClick={()=>setIndexStatus(!indexStatus)} ><Title2>menu</Title2></button>
+          <button style={{border:'2px solid rgb(0, 0, 0)'}} onClick={()=>setIndexStatus(!indexStatus)} ><Title2>menu</Title2></button>
         </div>
       </div>
     </div>)
@@ -67,14 +67,14 @@ import Title from "antd/lib/skeleton/Title";
     :
      ( <div>
       <div className="nav">
-        <h1 style={{color:"rgb(0,0,0)",textShadow: "0px 0px 4px rgb(102, 100, 83)",marginLeft:'10px'}}  onClick={()=>setIndexStatus(!indexStatus)}><FontAwesomeIcon icon={faHatWizard} />   Marauders</h1>
+        <div style={{color:"rgb(0,0,0)",textShadow: "0px 0px 4px rgb(102, 100, 83)",marginLeft:'10px',fontSize:'2rem', }}  onClick={()=>setIndexStatus(!indexStatus)}><FontAwesomeIcon icon={faHatWizard} />   Marauders</div>
           <Basic>About</Basic>
           <Basic>How to use</Basic>
         <div className="buttons">
        
 
-        <StyledLink2 to="/login"><FontAwesomeIcon icon={faSignInAlt} size="2x"/></StyledLink2>
-        <StyledLink2 to="/register" ><FontAwesomeIcon icon={faUserPlus} size="2x"/></StyledLink2>
+        <StyledLink2 to="/login">Login</StyledLink2>
+        <StyledLink2 to="/register" >Sign Up</StyledLink2>
         
           
         </div>
@@ -107,17 +107,31 @@ const StyledLink1 = styled(Link)`
 
 
 const StyledLink2 = styled(Link)`
-  
+  padding: 10px 0 0 0 ;
+  font-size:1.5rem;
   text-decoration:none;
+  color: black;
+  &:hover{
+    color: rgb(103,0,0);
+  }
+
 `
 const Basic = styled.div`
+padding: 10px 0 0 0 ;
 font-size:1.5rem;
 animation: ${appear} 1s ease-in-out;
+
+&:hover{
+  color:#D5C6AD;
+}
 `
 
 const Title1 = styled.h1`
 color: rgb(0,0,0);
 text-shadow: 0px 0px 4px rgb(102, 100, 83);
+&:hover{
+    color:#D5C6AD;
+  }
 `
 
 const Title2 = styled.h1`
@@ -125,5 +139,8 @@ const Title2 = styled.h1`
   color: rgb(0, 0, 0);
   text-shadow: 0px 0px 4px rgb(102, 100, 83);
   padding-bottom:10px;
+  &:hover{
+    color:#D5C6AD
+  }
 
 `

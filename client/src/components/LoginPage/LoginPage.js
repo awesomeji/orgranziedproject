@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 import styled,{keyframes} from 'styled-components'
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css'; // needs additional webpack config!
-import "bootswatch/dist/sketchy/bootstrap.min.css";
+
 
 import {useDispatch} from 'react-redux'
 import { loginUser } from '../../_actions/user_action';
@@ -65,8 +65,8 @@ dispatch(loginUser(body))
         <input style={{backgroundColor:"rgba(170, 149, 106,0.5)",border:'2px solid rgb(0,0,0)'}} type="email" name="email" value={Email} onChange={onEmailHandler} placeholder="Email"/>
         <input style={{backgroundColor:"rgba(170, 149, 106,0.5)",border:'2px solid rgb(0,0,0)'}} type="password" name="password" value={Password} onChange={onPasswordHandler} placeholder="Password"/>
         <div className="buttonform">
-        <button style={{border:"5px double rgb(0,0,0)"}} className="btn"type="submit">Sign in</button>
-        <Link to="/register" ><button style={{border:"5px double rgb(0,0,0)"}} className="btn" >Sign up</button></Link>
+        <button className="btn"type="submit">Sign in</button>
+        <Link to="/register" ><button className="btn" >Sign up</button></Link>
 
         </div>
       </LoginForm>
@@ -91,7 +91,7 @@ from { opacity: 0; }
 to { opacity: 0.5; }
 `
 const LoginContainer = styled.div`
-  border: 5px double rgb(0,0,0);
+  border: 1px solid rgb(0,0,0);
   height: 60vh;
   width: 70vw;
   display: flex;
@@ -105,7 +105,7 @@ const LoginContainer = styled.div`
 const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
-  border-right: 5px double rgb(0,0,0);
+  border-right: 1px solid rgb(0,0,0);
   height:100%;
   width: 40%;
   /* animation: ${appear} 1s ease-in-out; */
@@ -120,8 +120,8 @@ const LoginForm = styled.form`
     border:1px solid black;
   }
   button:hover{
-    background:black;
-    color:white;
+    background:rgb(103,0,0);
+    color:#D5C6AD;
   }
   input{
     width:60%;

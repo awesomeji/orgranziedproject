@@ -34,7 +34,7 @@ const {Title} = Typography
     
     <div className="postPage" style={{width:"80%", margin:"3rem auto"}}>
      <BlogNav>
-        <Title style={{marginTop:'40px'}}><StyledLink style={{color:"black"}} to="/blog" >Diary</StyledLink></Title>
+        <Title style={{marginTop:'40px'}}><StyledLink style={{color:"black"}} to="/blog/user" >Diary</StyledLink></Title>
       <Title ><StyledLink style={{color:"rgb(103,0,0)"}} to="/blog/create" >Create Diary</StyledLink></Title>
       </BlogNav>
       <Title>{post.writer.name}'s Post</Title>

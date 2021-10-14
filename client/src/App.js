@@ -14,7 +14,6 @@ import CreatePage from './components/BlogPage/Sections/CreatePage';
 import BlogPage from "./components/BlogPage/BlogPage";
 import PostPage from "./components/PostPage/PostPage";
 import Quest from "./components/quest/Quest"
-import background from './img/987202_repin-image-marauders-map-by-ilovechez-on-pinterest_774x1032_h.webp';
 import "./styles/_app.scss";
 
 
@@ -28,7 +27,8 @@ function App() {
  
   return (
     <>
-      <div style={{zIndex:'-1',position:"absolute",margin:'0',padding:'0',boxSizing:'border-box',height:'120vh'}}><img className="bg" style={{width:'100vw',opacity:'0.7',height:'120vh'}} src={background} alt=""/></div>
+      <div style={{zIndex:'-1',position:"absolute",margin:'0',padding:'0',boxSizing:'border-box',height:'120vh',width:'100vw',opacity:'0.7',height:'120vh',backgroundColor: "#D5C6AD",
+backgroundImage: 'url("https://www.transparenttextures.com/patterns/light-wool.png")'}}></div>
     <Suspense style={{margin:'0',padding:'0',boxSizing:'border-box'}} fallback={(<div>Loading...</div>)}>
       <Nav sindexStatus={indexStatus} setIndexStatus={setIndexStatus}
           loginStatus={loginStatus} setLoginStatus={setLoginStatus} 

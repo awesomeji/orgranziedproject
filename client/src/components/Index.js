@@ -8,13 +8,13 @@ export default function Index({indexStatus,setIndexStatus}) {
   return (
     <IndexContainer indexStatus={indexStatus} >
       <IndexButtons>
-        <StyledLink to="/">HOME</StyledLink>
+        <StyledLink style={{textDecoration:'none',color:'black'}} to="/">HOME</StyledLink>
        
         <button onClick={()=>setIndexStatus(!indexStatus)} ><FontAwesomeIcon icon={faTimes}  /></button>
       </IndexButtons>
-      <IndexWrapper><Link to="/calendar">Calendar</Link></IndexWrapper>
-      <IndexWrapper><Link to="/blog/user">Blog</Link></IndexWrapper>
-      <IndexWrapper>Coming up</IndexWrapper>
+      <IndexWrapper><FLink to="/quest">Quest</FLink></IndexWrapper>
+      <IndexWrapper><FLink to="/calendar">Calendar</FLink></IndexWrapper>
+      <IndexWrapper><FLink to="/blog/user">Diary</FLink></IndexWrapper>
       <IndexWrapper>Coming up</IndexWrapper>
 
 
@@ -27,6 +27,12 @@ export default function Index({indexStatus,setIndexStatus}) {
 const IndexWrapper = styled.div`
   font-size: 1.5rem;
   margin: 20px 0 0 10px;
+  -webkit-appearance: none;
+  display:flex;
+   &:hover{
+    background-color: rgb(103,0,0);
+    color:white;
+  }
   
 `
 
@@ -34,11 +40,12 @@ const IndexContainer = styled.div`
 position:fixed;
   top:0;
   left:0;
-  width:20rem;
+  width:12rem;
   height:100%;
-  background: white;
-  box-shadow: 2px 2px 50px gray;
-  transform:${props => props.indexStatus ? 'translateX(0%)' : 'translateX(-100%)'};
+  background-color: #8E8375;
+  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  box-shadow: 2px 2px 50px #8E8375;
+  transform:${props => props.indexStatus ? 'translateX(0%)' : 'translateX(-110%)'};
  
   z-index: ${props => props.indextatus ? '0' : '2'};
   
@@ -56,6 +63,8 @@ const IndexButtons = styled.div`
   justify-content: space-around;
   button{
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     border: none;
     background:transparent;
   }
@@ -67,4 +76,17 @@ const IndexButtons = styled.div`
 const StyledLink = styled(Link)`
   margin-top:35px;
   text-decoration:none;
+  color:black;
+  
+
 `
+
+const FLink =styled(Link)`
+  width:100%;
+  text-decoration:none;
+  color:black;
+  flex: 1;
+  &:hover{
+    color:#D5C6AD
+  }
+  `

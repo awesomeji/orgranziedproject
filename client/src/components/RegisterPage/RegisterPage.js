@@ -57,7 +57,7 @@ const onSubmitHandler = (e) => {
           <input type="password" name="confirmpassword" value={confirmPassword}  onChange={onConfirmPasswordHandler}placeholder="Confirmpassword"/>
           
           <div className="buttonform">
-          <button className="btn" type="submit">Sign up</button>
+          <button className="btn" style={{border:'none'}}type="submit">I solemnly swear that I am up to no good</button>
   
           </div>
         </RegisterForm>
@@ -70,11 +70,13 @@ const onSubmitHandler = (e) => {
   
   const RegisterContainer = styled.div`
    
-    height: 60vh;
+    height: 80vh;
+    
     width: 70vw;
     display: flex;
     flex-direction: row;
-    
+    border: 1px solid black;
+    border-radius: 2rem;
     top: 0;
     left: 0;
     transform: translate(20%,10%);
@@ -82,7 +84,7 @@ const onSubmitHandler = (e) => {
   const RegisterForm = styled.form`
     display: flex;
     flex-direction: column;
-   
+    
     height:100%;
     width: 100%;
     align-items: center;
@@ -99,14 +101,17 @@ const onSubmitHandler = (e) => {
       margin-bottom:20px;
     }
     button:hover{
-      background:black;
-      color:white;
+      background:rgb(103,0,0);
+      color:#D5C6AD;
     }
     input{
+      font-size: 1.5rem;
+      padding: 0 0 0 10px;
       width:60%;
-      height:5vh;
       -webkit-appearance: none;
       outline:none;
+      background-color: #C7B699;
+      border:none;
     }
   
     input:focus{

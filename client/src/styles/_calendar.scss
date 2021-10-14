@@ -13,10 +13,10 @@
 .fc-view-harness
 {
   
-  background-color: #f0e2b5;
-  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
-    border-bottom: 2px solid rgb(103, 0, 0);
-  border-right: 2px solid rgb(103, 0, 0);
+  background-color: #C7B699;
+  background-image: url("https://www.transparenttextures.com/patterns/shattered-dark.png");
+   border-right: #D5C6AD solid 1px;
+   border-bottom: #D5C6AD solid 1px;
   
 }
 .fc {
@@ -87,8 +87,7 @@ to { opacity: 1; }
 
 .dumpster{
   height: 12%;
-  border-bottom: 5px double black; 
-  border-left: 5px double black;
+  border-bottom: 1px solid black;
   overflow: hidden;
   align-items: center;
   justify-content: center;
@@ -108,17 +107,22 @@ to { opacity: 1; }
 .detail,
 .selectcolor
 {
-  border:2px solid black;
+  
   height: 20%;
   font-size: 1.5rem;
-  background-color: rgba(170, 149, 106,0.5);
-  
+  background-color: #C7B699;
+  background-image: url("https://www.transparenttextures.com/patterns/shattered-dark.png");
+  border-style: none; 
+  text-align: center;
 }
 .addevent,
 .detail{
   &::placeholder{
     color: rgba(103, 0, 0,0.5);
   }
+}
+textarea:focus, input:focus{
+  outline: none;
 }
 
 .selectcolor{
@@ -131,7 +135,8 @@ to { opacity: 1; }
   -moz-text-align-last: center;
 }
 .addtodo{
-  background-color: rgba(170, 149, 106,0.5);
+  background-color: #C7B699;
+  background-image: url("https://www.transparenttextures.com/patterns/shattered-dark.png");
 
   
 
@@ -140,19 +145,9 @@ to { opacity: 1; }
   border:5px double rgb(103, 0, 0);
   &:hover {
     background: rgb(103, 0, 0);
-    color: rgb(0,0,0);
+    color: #C7B699;
   }
 }
 
-// .checkbox{
-//  padding:2px;
-  
-// }
-// .fc-event-title{
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-//   width: 100%;
-//   justify-content: space-evenly;
-// }
+
 

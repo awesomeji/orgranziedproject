@@ -6,9 +6,7 @@ import interactionPlugin, { Draggable } from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from '@fullcalendar/list';
 // import the third-party stylesheets directly from your JS
-import 'bootstrap/dist/css/bootstrap.css';
-import '@fortawesome/fontawesome-free/css/all.css'; // needs additional webpack config!
-import "bootswatch/dist/sketchy/bootstrap.min.css";
+
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDumpsterFire } from '@fortawesome/free-solid-svg-icons'

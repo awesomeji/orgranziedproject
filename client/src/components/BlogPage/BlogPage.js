@@ -52,7 +52,7 @@ function BlogPage(props) {
 //function
 
 const renderCard = blogs.map((blog, index) => {
-  return <Col key={index} lg={8} md={12} xs={24} >
+  return <Col  key={index} lg={8} md={12} xs={24} >
     <StyledCard 
     
     hoverable
@@ -125,6 +125,7 @@ border:none;
 color: rgb(0,0,0);
 text-shadow: 0px 0px 4px rgb(102, 100, 83);
 box-shadow: 0px 0px 8px rgb(77, 75, 63);
-background-color: rgba(170, 149, 106,0.5);
+background-color: rgba(199, 182 , 153 ,0.5);
+background-image: url("https://www.transparenttextures.com/patterns/shattered-dark.png");
 border-radius: 2rem;
 `
